@@ -1,5 +1,10 @@
 from hats import equip_random_hat_and_flip
-from move import go_to_position, traverse_grid
+from move import (
+    go_to_position,
+    traverse_grid,
+    traverse_grid_reverse,
+    traverse_grid_infinite,
+)
 from harvest import basic_soil_harvest, hydrate_if_needed, tree_carrot_check_pattern
 
 clear()
@@ -27,6 +32,4 @@ while True:
     # grid_size = 2
     start_position = (0, 0)
 
-    go_to_position(start_position)
-    traverse_grid(start_position, grid_size, cell_handler)
-    go_to_position(start_position)
+    traverse_grid_infinite(start_position, grid_size, cell_handler)

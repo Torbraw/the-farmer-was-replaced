@@ -2,9 +2,9 @@ def traverse_grid(start_position, size, func):
     x, y = start_position
 
     for row in range(size):
-        for _ in range(size):
+        for col in range(size):
             func(x, y)
-            if _ != size - 1:
+            if col != size - 1:
                 if row % 2 == 0:
                     move(East)
                     x += 1
@@ -15,6 +15,33 @@ def traverse_grid(start_position, size, func):
         if row != size - 1:
             move(North)
             y += 1
+
+
+def traverse_grid_reverse(start_position, size, func):
+    x, y = start_position
+
+    for row in range(size - 1, -1, -1):
+        for col in range(size - 1, -1, -1):
+            func(x, y)
+            if col != 0:
+                if row % 2 == 0:
+                    move(West)
+                    x -= 1
+                else:
+                    move(East)
+                    x += 1
+
+        if row != 0:
+            move(South)
+            y -= 1
+
+
+def traverse_grid_infinite(start_position, size, func):
+    x, y = start_position
+
+    while True:
+        traverse_grid((x, y), size, func)
+        traverse_grid_reverse((x, y + size - 1), size, func)
 
 
 def go_to_position(position):
