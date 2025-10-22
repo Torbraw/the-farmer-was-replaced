@@ -12,8 +12,6 @@ clear()
 # pet_the_piggy()
 equip_random_hat_and_flip()
 
-available_patterns = ["trees_and_carrots"]
-
 
 def handle_cell(x, y, pattern):
     basic_soil_harvest()
